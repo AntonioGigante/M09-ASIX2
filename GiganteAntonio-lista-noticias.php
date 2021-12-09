@@ -10,6 +10,8 @@
         <td>texto</td>
         <td>categoria</td>
         <td>imagen</td>
+        <td>ver</td>
+        <td>del</td>
     </tr>
 <?php
 include_once 'conexion.php';
@@ -25,6 +27,8 @@ if($conex){
                     <td><?=$row['texto'];?></td>
                     <td><?=$row['categoria'];?></td>
                     <td><?=$row['imagen'];?></td>
+                    <td><a href="gestion_noticia.php?id=<?=$row['id'];?>&accion=M">Modificar</a></td>
+                    <td><a href="gestion_noticia.php?id=<?=$row['id'];?>&accion=B">Borrar</a></td>
                 </tr>
             <?php
         }
