@@ -24,15 +24,26 @@ if($conex){
             while($row = mysqli_fetch_assoc($result)){
                 ?>
                     <input type="text" name="titulo" value="<?=$row['titulo']?>"/></br></br>
-                    <textarea><?=$row['texto'];?></textarea></br></br>
+                    <textarea name="texto"><?=$row['texto'];?></textarea></br></br>
                     <select name="categoria">
                         <option value="<?=$row['categoria']?>"><?=$row['categoria'];?></option>
                     </select><br><br>
                     <button type="submit" name="submit">Modificar noticia</button>
                 <?php
+
+                $titulo=$_REQUEST["titulo"];
+                $texto=$_REQUEST["texto"];
+                $categoria=$_REQUEST["categoria"];
+
+                $query = "UPDATE noticias SET titulo='$titulo', texto='$texto', categoria='$categoria' WHERE id =".$_REQUEST["id"];
+
+                if (mysqli_query($conex, $query)) {
+                    echo "La noticia se a actualizado";
+                  } else {
+                    echo "Error al actualizar la noticia: " . mysqli_error($conex);
+                  }
             }
         }
-        $query = "UPDATE noticias SET titulo, texto, categoria WHERE id =".$_REQUEST["id"];
     }
 }
 ?>
