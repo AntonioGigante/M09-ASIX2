@@ -42,7 +42,7 @@ if($conex){
                 $newtext='texto';
                 $newcategoria="categoria";
 
-                $sql = "UPDATE noticia SET titulo='$newtitle', texto='$newtitle', categoria='$newcategoria' WHERE id =".$_REQUEST["id"];
+                $sql = "UPDATE noticia SET titulo='$newtitle', texto='$newtext', categoria='$newcategoria' WHERE id =".$_REQUEST["id"];
 
                 if($result = mysqli_query($conex, $sql)){
                     echo "La noticia se ha actualizado correctamente";
