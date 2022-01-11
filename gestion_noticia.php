@@ -33,7 +33,7 @@ if($conex){
                         <select name="categoria">
                             <option value="<?=$row['categoria']?>"><?=$row['categoria'];?></option>
                         </select><br><br>
-                        <button type="submit" name="submit">Modificar noticia</button>
+                        <button type="submit" name="submit">Modificar </button>
                     </form>
                 <?php 
             }
