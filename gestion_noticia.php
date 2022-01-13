@@ -25,6 +25,7 @@ if($conex){
             while($row = mysqli_fetch_assoc($res)){
                 ?>
                     <form method="post" action="GiganteAntonio-lista-noticias.php" enctype="multipart/form-data">
+                    <form>
                         <p>Titulo</p>
                         <input type="text" name="titulo" value="<?=$row['titulo']?>"/></br></br>
                         <p>Noticia</p>
@@ -37,7 +38,6 @@ if($conex){
                     </form>
                 <?php 
             }
-            
                 $newtitle=$_REQUEST['titulo'];
                 $newtext=$_REQUEST['texto'];
                 $newcategoria=$_REQUEST["categoria"];
