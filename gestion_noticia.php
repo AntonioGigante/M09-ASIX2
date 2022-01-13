@@ -24,7 +24,7 @@ if($conex){
         if($res = mysqli_query($conex, $query)){
             while($row = mysqli_fetch_assoc($res)){
                 ?>
-                    <form method="post" action="GiganteAntonio-lista-noticias.php" enctype="multipart/form-data">
+                    <form method="post" action="" enctype="multipart/form-data">
                     <form>
                         <p>Titulo</p>
                         <input type="text" name="titulo" value="<?=$row['titulo']?>"/></br></br>
@@ -38,25 +38,29 @@ if($conex){
                     </form>
                 <?php 
             }
-                $newtitle=$_REQUEST['titulo'];
-                $newtext=$_REQUEST['texto'];
-                $newcategoria=$_REQUEST["categoria"];
-
-                $sql = "UPDATE noticia SET titulo='$newtitle', texto='$newtext', categoria='$newcategoria' WHERE id =".$_REQUEST["id"];
-
-                if($result = mysqli_query($conex, $sql)){
-                    echo "La noticia se ha actualizado correctamente";
-                    ?><a href="GiganteAntonio-lista-noticias.php">Volver</a><?php
-                }else{
-                    echo "La noticia no se ha podido actualizar";
-                    ?><a href="GiganteAntonio-lista-noticias.php">Volver</a><?php
-                }
-            
         }
     }
 }else{
     echo "No se ha establecido connexión con la base de datos";
 }
+if(isset($_POST['submit'])){
+    $newtitle=$_REQUEST['titulo'];
+    $newtext=$_REQUEST['texto'];
+    $newcategoria=$_REQUEST["categoria"];
+
+    $sql = "UPDATE noticia SET titulo='$newtitle', texto='$newtext', categoria='$newcategoria' WHERE id =".$_REQUEST["id"];
+    echo $sql;
+    if($result = mysqli_query($conex, $sql)){
+        echo "La noticia se ha actualizado correctamente";
+        ?><a href="GiganteAntonio-lista-noticias.php">Volver</a><?php
+    }else{  
+        echo "La noticia no se ha podido actualizar";
+        ?><a href="GiganteAntonio-lista-noticias.php">Volver</a><?php
+    }
+
+}
+
+mysqli_close($conex);
 ?>
 </body>
 </html>
