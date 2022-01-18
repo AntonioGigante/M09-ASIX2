@@ -40,17 +40,14 @@ if($conex){
             }
         }
     }
-}else{
-    echo "No se ha establecido connexión con la base de datos";
-}
+
 if(isset($_POST['submit'])){
     $newtitle=$_REQUEST['titulo'];
     $newtext=$_REQUEST['texto'];
     $newcategoria=$_REQUEST["categoria"];
 
-    $sql = "UPDATE noticia SET titulo='$newtitle', texto='$newtext', categoria='$newcategoria' WHERE id =".$_REQUEST["id"];
-    echo $sql;
-    if($result = mysqli_query($conex, $sql)){
+    $sql = "UPDATE noticias SET titulo='$newtitle', texto='$newtext', categoria='$newcategoria' WHERE id =".$_REQUEST["id"];
+    if($resultat = mysqli_query($conex, $sql)){
         echo "La noticia se ha actualizado correctamente";
         ?><a href="GiganteAntonio-lista-noticias.php">Volver</a><?php
     }else{  
@@ -61,6 +58,10 @@ if(isset($_POST['submit'])){
 }
 
 mysqli_close($conex);
+
+}else{
+    echo "No se ha establecido connexión con la base de datos";
+}
 ?>
 </body>
 </html>
