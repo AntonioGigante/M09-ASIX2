@@ -27,8 +27,8 @@ if($conex){
                     <td><?=$row['texto'];?></td>
                     <td><?=$row['categoria'];?></td>
                     <td><?=$row['imagen'];?></td>
-                    <td><a href="gestion_noticia.php?id=<?=$row['id'];?>&accion=M">Modificar</a></td>
-                    <td><a href="gestion_noticia.php?id=<?=$row['id'];?>&accion=B">Borrar</a></td>
+                    <td><a href="modificar_imagen.php?id=<?=$row['id'];?>&accion=M">Modificar</a></td>
+                    <td><a href="modificar_imagen.php?id=<?=$row['id'];?>&accion=B">Borrar</a></td>
                 </tr>
             <?php
         }
