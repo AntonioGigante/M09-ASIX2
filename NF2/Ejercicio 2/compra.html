@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>compra</title>
+    </head>
+    <body>
+        <h1>Gestión de compra</h1>
+        <form method="post" action="envio.php" enctype="multipart/form-data">
+            <p>configuración equipo</p>
+            <p>procesador:</p>
+            <select name="procesador">
+                <option value="i3">intel i3 (100€)</option>
+                <option value="i5">intel i5 (150€)</option>
+                <option value="i7">intel i7 (200€)</option>
+            </select>
+            <p>RAM:</p>
+            <select>
+                <option value="2gb">2GB (50€)</option>
+                <option value="4gb">4GB (70€)</option>
+                <option value="8gb">8GB (80€)</option>
+            </select>
+            <p>SO:</p>
+            <div>
+                <input type="radio" name="windows" value="winodows"/>
+                <label>windows (80€)</label>
+                <input type="radio" name="ubuntu" value="ubuntu"/>
+                <label>ubuntu (0€)</label>
+            </div>
+            <div>
+                <button type="submit" value="submit">comprar</button>
+                <button type="submit" value="submit"><a href="">reiniciar</a></button>
+            </div>
+        </form>
+    </body>
+</html>
