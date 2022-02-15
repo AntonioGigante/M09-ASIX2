@@ -21,3 +21,11 @@
         </form>
     </body>
 </html>
+<?php
+session_start();
+if(isset($_POST['submit'])){
+    $cpu = $_REQUEST['procesador'];
+    $ram = $_REQUEST['ram'];
+    $so = $_REQUEST['so'];
+}
+?>
