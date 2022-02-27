@@ -10,6 +10,12 @@
             $nombre = $_REQUEST['nombre'];
             $direccion = $_REQUEST['direccion'];
             $tel = $_REQUEST['telefono'];
+            
+            $preciocpu = array('i3'=>100,'i5'=>150,'i7'=>200);
+            $precioram = array('2gb'=>50,'4gb'=>70,'8gb'=>90);
+            $precioso = array('windows'=>80,'ubuntu'=>0);
+            $total = $preciocpu[$_SESSION['session']['cpu']] + $precioram[$_SESSION['session']['ram']] + $precioso[$_SESSION['session']['so']];
+
 
             $_SESSION['envio']=array();
             $_SESSION['envio']['nombre'] = $nombre;
@@ -28,20 +34,20 @@
                 <tr>
                     <td rowspan="2">HW</td>
                     <td><?php echo $_SESSION['session']['cpu'];?></td>
-                    <td>precio</td>
+                    <td><?php echo $preciocpu[$_SESSION['session']['cpu']]; echo '€';?></td>
                 </tr>
                 <tr>
                     <td><?php echo $_SESSION['session']['ram'];?></td>
-                    <td>precio</td>
+                    <td><?php echo $precioram[$_SESSION['session']['ram']];echo '€';?></td>
                 </tr>
                 <tr>
                     <td>SW</td>
                     <td><?php echo $_SESSION['session']['so'];?></td>
-                    <td>precio</td>
+                    <td><?php echo $precioso[$_SESSION['session']['so']];echo '€';?></td>
                 </tr>
                 <tr>
                     <td colspan="2">Total</td>
-                    <td>€</td>
+                    <td><?php echo $total;echo '€';?></td>
                 </tr>
                 <thead>
                     <tr>
