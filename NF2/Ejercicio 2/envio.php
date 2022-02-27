@@ -5,6 +5,17 @@
         <title>envio</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     </head>
+<?php
+session_start();
+    $cpu = $_REQUEST['procesador'];
+    $ram = $_REQUEST['ram'];
+    $so = $_REQUEST['so'];
+
+    $_SESSION['session']=array();
+    $_SESSION['session']['cpu']= $cpu;
+    $_SESSION['session']['ram']= $ram;
+    $_SESSION['session']['so']= $so;
+?>
     <body>
         <h1>Gestión de compra - envio</h1>
         <form method="post" action="resumen.php" enctype="multipart/form-data">
@@ -21,11 +32,3 @@
         </form>
     </body>
 </html>
-<?php
-session_start();
-if(isset($_POST['submit'])){
-    $cpu = $_REQUEST['procesador'];
-    $ram = $_REQUEST['ram'];
-    $so = $_REQUEST['so'];
-}
-?>
